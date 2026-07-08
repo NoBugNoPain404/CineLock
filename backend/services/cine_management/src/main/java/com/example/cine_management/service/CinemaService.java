@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CinemaService {
+public class    CinemaService {
 
     private final CinemaCacheService cinemaCacheService;
 

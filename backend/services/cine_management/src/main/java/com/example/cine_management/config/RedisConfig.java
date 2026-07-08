@@ -21,12 +21,23 @@ import java.util.Map;
 public class RedisConfig {
 
     @Bean
-    public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
+    public RedisSerializer<Object> redisSerializer() {
+        return GenericJacksonJsonRedisSerializer.builder().build();
+    }
+
+    @Bean
+    public CacheManager cacheManager(RedisConnectionFactory connectionFactory,
+                                     RedisSerializer<Object> serializer) {
         RedisCacheConfiguration defaults = RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofMinutes(10))
+                .serializeKeysWith(
+                        RedisSerializationContext.SerializationPair.fromSerializer(
+                                StringRedisSerializer.UTF_8
+                        )
+                )
                 .serializeValuesWith(
                         RedisSerializationContext.SerializationPair.fromSerializer(
-                                RedisSerializer.json()
+                                serializer
                         )
                 )
                 .enableTimeToIdle();
@@ -36,7 +47,7 @@ public class RedisConfig {
         cacheConfigs.put("cities", RedisCacheConfiguration.defaultCacheConfig()
                 .serializeValuesWith(
                         RedisSerializationContext.SerializationPair.fromSerializer(
-                                RedisSerializer.json()
+                                serializer
                         )
                 )
                 .enableTimeToIdle());
@@ -44,7 +55,7 @@ public class RedisConfig {
         cacheConfigs.put("activeCinema", RedisCacheConfiguration.defaultCacheConfig()
                 .serializeValuesWith(
                         RedisSerializationContext.SerializationPair.fromSerializer(
-                                RedisSerializer.json()
+                                serializer
                         )
                 )
                 .enableTimeToIdle());
@@ -71,7 +82,7 @@ public class RedisConfig {
         template.setValueSerializer(jsonRedisSerializer);
         template.setHashValueSerializer(jsonRedisSerializer);
 
-        template.afterPropertiesSet();;
+        template.afterPropertiesSet();
         return template;
     }
 

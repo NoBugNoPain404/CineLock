@@ -1,2 +1,2 @@
 # CineLock
-A microservice project to learn solve performance issue
+A microservice project for learning how to solve performance issues.

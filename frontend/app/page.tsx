@@ -15,7 +15,7 @@ type Cinema = {
   id: number;
   name: string;
   address: string;
-  city: City;
+  city: number;
   latitude: number;
   longitude: number;
   phone: string;
@@ -81,7 +81,7 @@ export default function Home() {
       <div className="mt-8">
         {cinemas
           ?.filter((cinema) =>
-            selectedCity ? cinema.city.id === selectedCity.id : true,
+            selectedCity ? cinema.city === selectedCity.id : true,
           )
           .map((cinema) => (
             <div key={cinema.id} className="mb-4">
@@ -89,14 +89,14 @@ export default function Home() {
               <p>{cinema.address}</p>
               <p>{cinema.phone}</p>
               <p>{cinema.email}</p>
-              {cinema.image && (
+              {/* {cinema.image && (
                 <Image
                   src={cinema.image}
                   alt={cinema.name}
                   width={300}
                   height={200}
                 />
-              )}
+              )} */}
             </div>
           ))}
       </div>

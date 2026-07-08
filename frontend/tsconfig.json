@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "baseUrl": "src/",
+    "baseUrl": ".",
     "ignoreDeprecations": "6.0",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -21,9 +21,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@/styles/*": ["styles/*"],
-      "@/components/*": ["components/*"]
+      "@/*": ["*"]
     }
   },
   "include": [

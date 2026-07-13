@@ -7,8 +7,6 @@ import java.math.BigDecimal;
 @Data
 public class ActiveCinemaDTO {
 
-    private Integer id;
-
     private String name;
 
     private String address;

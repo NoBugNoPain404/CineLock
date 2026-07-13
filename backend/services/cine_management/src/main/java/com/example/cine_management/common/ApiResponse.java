@@ -1,6 +1,5 @@
 package com.example.cine_management.common;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.Data;
 
@@ -21,4 +20,5 @@ public class ApiResponse<T> {
         this.httpCode = httpCode;
         this.data = data;
     }
+
 }

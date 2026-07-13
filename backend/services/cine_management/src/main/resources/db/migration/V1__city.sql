@@ -1,42 +1,8 @@
 create schema if not exists cine_management;
 
-create table cine_management.city (
+create table if not exists cine_management.city (
     id integer not null primary key,
-    name varchar(255) not null unique
+    name varchar(255) not null unique,
+    created_at timestamptz default now(),
+    updated_at timestamptz default now()
 );
-
-insert into cine_management.city (id, name) values
-(1, 'An Giang'),
-(2, 'Bắc Ninh'),
-(3, 'Cà Mau'),
-(4, 'Cao Bằng'),
-(5, 'Cần Thơ'),
-(6, 'Đà Nẵng'),
-(7, 'Đắk Lắk'),
-(8, 'Điện Biên'),
-(9, 'Đồng Nai'),
-(10, 'Đồng Tháp'),
-(11, 'Gia Lai'),
-(12, 'Hà Nội'),
-(13, 'Hà Tĩnh'),
-(14, 'Hải Phòng'),
-(15, 'Hưng Yên'),
-(16, 'Huế'),
-(17, 'Khánh Hòa'),
-(18, 'Lai Châu'),
-(19, 'Lâm Đồng'),
-(20, 'Lạng Sơn'),
-(21, 'Lào Cai'),
-(22, 'Nghệ An'),
-(23, 'Ninh Bình'),
-(24, 'Phú Thọ'),
-(25, 'Quảng Ngãi'),
-(26, 'Quảng Ninh'),
-(27, 'Quảng Trị'),
-(28, 'Sơn La'),
-(29, 'Tây Ninh'),
-(30, 'Thái Nguyên'),
-(31, 'Thanh Hóa'),
-(32, 'TP. Hồ Chí Minh'),
-(33, 'Tuyên Quang'),
-(34, 'Vĩnh Long');

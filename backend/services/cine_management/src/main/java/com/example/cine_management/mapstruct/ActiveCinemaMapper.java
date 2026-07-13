@@ -8,7 +8,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface ActiveCinemaMapper {
 
-    @Mapping(target = "id", source = "cinema.id")
     @Mapping(target = "name", source = "cinema.name")
     @Mapping(target = "address", source = "cinema.address")
     @Mapping(target = "city", source = "cinema.city.id")

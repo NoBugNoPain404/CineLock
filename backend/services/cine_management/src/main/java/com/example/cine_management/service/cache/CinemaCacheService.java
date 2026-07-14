@@ -15,7 +15,6 @@ import java.util.List;
 public class CinemaCacheService {
 
     private final CinemaRepository cinemaRepository;
-    private final ActiveCinemaMapper mapper;
 
     @Cacheable(value = "cinema")
     public List<Cinema> getAll() {
@@ -26,7 +25,7 @@ public class CinemaCacheService {
     public List<ActiveCinemaDTO> getActiveCinema() {
         List<Cinema> cinemas = cinemaRepository.findAllActiveCinema();
         return cinemas.stream()
-                .map(mapper::cinemaToActiveCinema)
+                .map(ActiveCinemaMapper.INSTANCE::cinemaToActiveCinema)
                 .toList();
     }
 }

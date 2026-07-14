@@ -28,8 +28,8 @@ public class Person {
     @Column(name = "dob")
     private Date dob;
 
-    @OneToMany(fetch = FetchType.LAZY   )
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true,
+            mappedBy = "person", cascade = CascadeType.ALL)
     private Set<PersonNationality> nationality = new HashSet<>();
 
     @Column(name = "image")

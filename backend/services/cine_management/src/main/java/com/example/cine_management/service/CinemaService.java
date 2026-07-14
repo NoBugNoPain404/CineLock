@@ -15,9 +15,10 @@ public class    CinemaService {
     private final CinemaCacheService cinemaCacheService;
 
     public ApiResponse<List<ActiveCinemaDTO>> getActiveCinema() {
-        return ApiResponse.<List<ActiveCinemaDTO>>builder()
-                .httpCode(201)
-                .data(cinemaCacheService.getActiveCinema())
-                .build();
+        return ApiResponse.success(
+                201,
+                cinemaCacheService.getActiveCinema(),
+                "Get active cinema list successfully"
+        );
     }
 }

@@ -15,9 +15,10 @@ public class CityService {
     private final CityCacheService cityCacheService;
 
     public ApiResponse<List<City>> getAll() {
-        return ApiResponse.<List<City>>builder()
-                .httpCode(201)
-                .data(cityCacheService.findAllCity())
-                .build();
+        return ApiResponse.success(
+                201,
+                cityCacheService.findAllCity(),
+                "Get city list successfully"
+        );
     }
 }

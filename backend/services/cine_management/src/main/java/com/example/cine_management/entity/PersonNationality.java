@@ -15,11 +15,11 @@ public class PersonNationality {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "person_id")
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person person;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "nation")
+    @JoinColumn(name = "nation", referencedColumnName = "id")
     private Nation nation;
 
     @Column(name = "created_at")

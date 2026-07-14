@@ -4,9 +4,12 @@ import com.example.cine_management.entity.Cinema;
 import com.example.cine_management.pojo.ActiveCinemaDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface ActiveCinemaMapper {
+
+    ActiveCinemaMapper INSTANCE = Mappers.getMapper( ActiveCinemaMapper.class);
 
     @Mapping(target = "name", source = "cinema.name")
     @Mapping(target = "address", source = "cinema.address")

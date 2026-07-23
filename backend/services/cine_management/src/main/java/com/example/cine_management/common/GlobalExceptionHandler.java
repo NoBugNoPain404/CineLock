@@ -29,7 +29,8 @@ public class GlobalExceptionHandler{
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiResponse<Void>> commonExceptionHandler() {
+    public ResponseEntity<ApiResponse<Void>> commonExceptionHandler(Exception ex) {
+        ex.printStackTrace();
         ApiResponse<Void> response = ApiResponse.<Void>builder()
                 .success(false)
                 .httpCode(503)

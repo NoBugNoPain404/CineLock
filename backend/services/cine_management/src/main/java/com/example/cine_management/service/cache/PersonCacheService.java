@@ -21,7 +21,7 @@ public class PersonCacheService {
 
     private final NationalityRepository nationalityRepository;
 
-    @Cacheable(value = "personDetail", key = "#id", unless = "#result = null ")
+    @Cacheable(value = "personDetail", key = "#id", unless = "#result == null")
     @Transactional
     public PersonDetailDto getInfoById(Integer id) {
         Person person = personRepository.findById(id)

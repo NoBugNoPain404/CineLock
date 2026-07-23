@@ -2,7 +2,7 @@ package com.example.cine_management.service.cache;
 
 import com.example.cine_management.entity.Cinema;
 import com.example.cine_management.mapstruct.ActiveCinemaMapper;
-import com.example.cine_management.pojo.ActiveCinemaDTO;
+import com.example.cine_management.pojo.ActiveCinemaDto;
 import com.example.cine_management.repository.CinemaRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
@@ -22,7 +22,7 @@ public class CinemaCacheService {
     }
 
     @Cacheable(value = "activeCinema")
-    public List<ActiveCinemaDTO> getActiveCinema() {
+    public List<ActiveCinemaDto> getActiveCinema() {
         List<Cinema> cinemas = cinemaRepository.findAllActiveCinema();
         return cinemas.stream()
                 .map(ActiveCinemaMapper.INSTANCE::cinemaToActiveCinema)

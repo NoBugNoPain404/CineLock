@@ -1,26 +1,30 @@
 package com.example.cine_management.pojo;
 
-import com.example.cine_management.entity.PersonNationality;
 import com.example.cine_management.enums.Gender;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-public record PersonDetailDto (
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class PersonDetailDto {
 
-    Integer id,
+    private Integer id;
 
-    String name,
+    private String name;
 
-    Gender gender,
+    private Gender gender;
 
-    Date dob,
+    private Date dob;
 
-    Set<String> nationality,
+    private Set<String> nationality;
 
-    String image,
+    private String image;
 
-    String note
+    private String note;
 
-) implements Serializable {}
+}

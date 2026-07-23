@@ -5,20 +5,21 @@ import lombok.Data;
 
 import java.time.Instant;
 
-@Data
 @Entity
-@Table(schema = "cine_management", name = "nationality")
-public class PersonNationality {
+@Table(name = "movie_genre", schema = "cine_management")
+@Data
+public class MovieGenre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
-    private Person person;
+    @JoinColumn(name = "movie_id", referencedColumnName = "id")
+    private Movie movie;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "nation", referencedColumnName = "id")
-    private Nation nation;
+    @JoinColumn(name = "genre_id", referencedColumnName = "id")
+    private Genre genre;
+
 }

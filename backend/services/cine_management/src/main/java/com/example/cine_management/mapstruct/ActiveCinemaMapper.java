@@ -1,7 +1,7 @@
 package com.example.cine_management.mapstruct;
 
 import com.example.cine_management.entity.Cinema;
-import com.example.cine_management.pojo.ActiveCinemaDTO;
+import com.example.cine_management.pojo.ActiveCinemaDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -19,5 +19,5 @@ public interface ActiveCinemaMapper {
     @Mapping(target = "phone", source = "cinema.phone")
     @Mapping(target = "email", source = "cinema.email")
     @Mapping(target = "image", source = "cinema.image")
-    ActiveCinemaDTO cinemaToActiveCinema(Cinema cinema);
+    ActiveCinemaDto cinemaToActiveCinema(Cinema cinema);
 }
